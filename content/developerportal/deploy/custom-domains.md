@@ -22,10 +22,6 @@ This option is provided for licensed apps. You cannot add custom domains to Free
 This documentation is describing certificates for *incoming* connections. For information on setting up certificates for *outgoing* connections, see [Certificates](certificates).
 {{% /alert %}}
 
-{{% alert type="warning" %}}
-You may not immediately see changes which affect DNS routing. This is because of DNS caching, where changes are not visible until the cache is updated.
-{{% /alert %}}
-
 **This how-to will teach you how to do the following:**
 
 * Generate a certificate request for your custom domain
@@ -57,9 +53,11 @@ Before configuring your custom domain in the Mendix Cloud, you will need to conf
 Create a CNAME (Canonical Name) record and point it to `[YOUR-CUSTOM-DOMAIN].cname.mendix.net.`. For example, if your custom domain is `myapp.mycompany.com`, create a CNAME record pointing to `myapp.mycompany.com.cname.mendix.net.` so that Mendix can direct your custom domain to your Mendix app.
 
 {{% alert type="info" %}}
-
 It is not possible to create a CNAME record for an apex/naked domain (meaning, a domain without a subdomain, like `mycompany.com`). If you want to use a custom apex/naked domain you should redirect it to a subdomain (for example, `subdomain.mycompany.com`) and create a CNAME for the subdomain instead.
+{{% /alert %}}
 
+{{% alert type="warning" %}}
+You may not immediately see changes which affect DNS routing. This is because of DNS caching, where changes are not visible until the cache is updated. You can check whether your CNAME record is configured correctly using [CNAME lookup](https://www.nslookup.io/cname-lookup/).
 {{% /alert %}}
 
 ## 3 Managing Custom Domains in the Mendix Cloud
